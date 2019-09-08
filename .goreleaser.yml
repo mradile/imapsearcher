@@ -1,0 +1,48 @@
+before:
+  hooks:
+    - go mod download
+
+builds:
+- env:
+  - CGO_ENABLED=0
+  goos:
+  - windows
+  - linux
+  - darwin
+  goarch:
+    - amd64
+    - arm
+    - arm64
+  ignore:
+    - goos: darwin
+      goarch: 386
+
+archives:
+- replacements:
+    amd64: x86_64
+  wrap_in_directory: true
+
+checksum:
+  name_template: 'checksums.txt'
+
+snapshot:
+  name_template: "{{ .Tag }}-dev"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+    - '^docs:'
+    - '^test:'
+    - '^typo'
+
+release:
+  github:
+    owner: mradile
+    name: imapsearcher
+  draft: true
+  prerelease: auto
+  # You can change the name of the GitHub release.
+  # Default is `{{.Tag}}`
+  name_template: "{{.ProjectName}}-v{{.Version}} {{.Env.USER}}"
+  disable: false
