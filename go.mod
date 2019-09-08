@@ -1,6 +1,6 @@
 module github.com/mradile/imapsearcher
 
-go 1.12
+go 1.13
 
 require (
 	github.com/emersion/go-imap v1.0.0
