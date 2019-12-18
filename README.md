@@ -1,3 +1,6 @@
+[![Go Report Card](https://goreportcard.com/badge/github.com/mradile/imapsearcher?style=flat-square)](https://goreportcard.com/report/github.com/mradile/imapsearcher)
+
+
 # IMAPSearcher
 IMAPSearcher is a small cli tool for searching in the address fields of emails in imap folders.  
 
